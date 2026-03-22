@@ -8,48 +8,65 @@
 body{background:#0b1220;color:#fff}
 header{display:flex;justify-content:space-between;padding:15px 30px;background:#020617}
 nav a{color:#fff;margin-left:20px;text-decoration:none}
-.hero{height:90vh;background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1');background-size:cover;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.hero{height:90vh;background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('https://images.unsplash.com/photo-1558611848-73f7eb4001a1');background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .hero h1{font-size:48px}
 .btn{background:#22c55e;padding:12px 25px;border-radius:30px;text-decoration:none;color:#fff;margin-top:20px;cursor:pointer}
 .section{padding:60px 20px;text-align:center}
 .cards{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
 .card{background:#111827;padding:20px;border-radius:10px;width:260px}
 .plan{border:2px solid #22c55e}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%}
+.about{background:#111827}
+.contact{background:#020617}
+footer{background:#020617;padding:20px;text-align:center}
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;color:white;text-decoration:none}
 form input,form select{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px}
-form button{background:#22c55e;color:#fff;padding:10px;border:none;border-radius:5px}
+form button{background:#22c55e;color:#fff;padding:10px;border:none;border-radius:5px;cursor:pointer}
+.map{margin-top:20px}
+iframe{width:100%;height:300px;border-radius:10px;border:none}
 </style></head><body>
 <header>
 <h2>FitZone Gym</h2>
 <nav>
 <a href="#">Home</a>
+<a href="#about">About</a>
 <a href="#plans">Plans</a>
 <a href="#join">Join</a>
+<a href="#contact">Contact</a>
 </nav>
 </header><section class="hero">
 <h1>Transform Your Body</h1>
-<p>Join the best gym today</p>
+<p>Join the best gym in Ahmedabad</p>
 <a href="#plans" class="btn">Join Now</a>
+</section><section class="section about" id="about">
+<h2>About FitZone Gym</h2>
+<p>
+FitZone Gym is a premium fitness center in Ahmedabad offering world-class equipment, certified trainers, and personalized workout programs.
+We help individuals transform their lifestyle with professional guidance and a motivating environment.
+</p>
+<br>
+<p>
+✔ Certified Trainers<br>
+✔ Modern Equipment<br>
+✔ Personal Training<br>
+✔ Diet & Fitness Plans
+</p>
 </section><section class="section" id="plans">
 <h2>Membership Plans</h2>
 <div class="cards">
 <div class="card plan">
 <h3>Basic</h3>
 <p>₹999/month</p>
-<p>✔ Gym Access
-✔ Free Diet Plan</p>
+<p>✔ Gym Access<br>✔ Diet Plan<br>✔ Locker Facility</p>
 </div>
 <div class="card plan">
 <h3>Pro</h3>
 <p>₹1999/month</p>
-<p>✔ Personal Trainer
-✔ Supplements Guide</p>
+<p>✔ Personal Trainer<br>✔ Diet + Workout Plan<br>✔ Free Consultation</p>
 </div>
 <div class="card plan">
 <h3>Premium</h3>
 <p>₹2999/month</p>
-<p>✔ All Access
-✔ 24/7 Support</p>
+<p>✔ All Access<br>✔ 24/7 Support<br>✔ Premium Equipment</p>
 </div>
 </div>
 </section><section class="section" id="join">
@@ -57,6 +74,7 @@ form button{background:#22c55e;color:#fff;padding:10px;border:none;border-radius
 <form onsubmit="sendData(event)">
 <input type="text" id="name" placeholder="Full Name" required>
 <input type="tel" id="phone" placeholder="Mobile Number" required>
+<input type="email" id="email" placeholder="Email Address" required>
 <select id="plan">
 <option>Basic</option>
 <option>Pro</option>
@@ -66,26 +84,35 @@ form button{background:#22c55e;color:#fff;padding:10px;border:none;border-radius
 <option>Online Payment</option>
 <option>Offline Payment</option>
 </select>
-<button type="submit">Submit</button>
+<button type="submit">Join Now</button>
 </form>
+</section><section class="section contact" id="contact">
+<h2>Contact & Location</h2>
+<p>📞 +91 9876543210</p>
+<p>📧 fitzone@gmail.com</p>
+<p>📍 2nd Floor, Fitness Plaza, SG Highway, Ahmedabad, Gujarat</p>
+<p>🕒 Mon - Sat: 6 AM - 10 PM</p><div class="map">
+<iframe src="https://maps.google.com/maps?q=Ahmedabad&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</div>
 </section><section class="section" id="receipt" style="display:none">
 <h2>Receipt</h2>
 <p id="receiptData"></p>
-</section><a href="https://wa.me/919876543210" class="whatsapp">💬</a>
+</section><footer>
+<p>© 2026 FitZone Gym | All Rights Reserved</p>
+</footer><a href="https://wa.me/91xxxxxxxxxx" class="whatsapp">💬</a>
 
 <script>
 function sendData(e){
 e.preventDefault();
 let name=document.getElementById('name').value;
 let phone=document.getElementById('phone').value;
+let email=document.getElementById('email').value;
 let plan=document.getElementById('plan').value;
 let payment=document.getElementById('payment').value;
 
-// Email (mailto simulation)
-window.location.href=`mailto:admin@gmail.com?subject=New Gym Member&body=Name:${name}%0APhone:${phone}%0APlan:${plan}%0APayment:${payment}`;
+window.location.href=`mailto:fitzone@gmail.com?subject=New Member&body=Name:${name}%0APhone:${phone}%0AEmail:${email}%0APlan:${plan}%0APayment:${payment}`;
 
-// Receipt
-let receipt=`Name: ${name} <br> Phone: ${phone} <br> Plan: ${plan} <br> Payment: ${payment}`;
+let receipt=`Name: ${name} <br> Phone: ${phone} <br> Email: ${email} <br> Plan: ${plan} <br> Payment: ${payment}`;
 document.getElementById('receiptData').innerHTML=receipt;
 document.getElementById('receipt').style.display='block';
 }
